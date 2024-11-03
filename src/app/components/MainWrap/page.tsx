@@ -9,14 +9,13 @@ export default function MainWrap() {
   const [currentProductIndex, setCurrentProductIndex] = useState<number>(0);
   const currentProduct = products[currentProductIndex];
 
-
   function switchProduct(index: number) {
     setCurrentProductIndex(index);
   }
 
   return (
     <main className="MainWrap container">
-      <ImageDisplay images={currentProduct.imges} />
+      <ImageDisplay images={currentProduct.images} />
       <ProductInfo product={currentProduct} onSwitchProduct={switchProduct} />
     </main>
   );
