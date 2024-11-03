@@ -3,29 +3,29 @@ import React, { useState } from "react";
 import { Tabs, Button } from "@radix-ui/themes";
 
 interface ImageGalleryProps {
-  images: string[];
+  images: string;
 }
 
-const ImageDisplay: React.FC<ImageGalleryProps> = (props) => {
+const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const img = JSON.parse(images);
+
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % props.images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % img.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + props.images.length) % props.images.length
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + img.length) % img.length);
   };
 
-  const mainImage = props.images[currentIndex];
+  const mainImage = img[currentIndex];
 
   return (
     <div className="ImageDisplay">
       <Tabs.Root orientation="vertical" className="ImageDisplay__btns">
         <Tabs.List>
-          {props.images.map((image, index) => (
+          {img.map((image, index) => (
             <Tabs.Trigger
               key={index}
               value={`tab-${index}`}
@@ -42,7 +42,7 @@ const ImageDisplay: React.FC<ImageGalleryProps> = (props) => {
 
       <div className="ImageDisplay__main-image">
         <img src={`/imgs/product/${mainImage}`} alt="Main view" />
-        <Button onClick={prevImage} disabled={props.images.length <= 1}>
+        <Button onClick={prevImage} disabled={img.length <= 1}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -59,7 +59,7 @@ const ImageDisplay: React.FC<ImageGalleryProps> = (props) => {
             ></path>
           </svg>
         </Button>
-        <Button onClick={nextImage} disabled={props.images.length <= 1}>
+        <Button onClick={nextImage} disabled={img.length <= 1}>
           <svg
             aria-hidden="true"
             focusable="false"
