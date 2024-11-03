@@ -17,7 +17,7 @@ export default function MainWrap() {
 
   return (
     <main className="MainWrap container">
-      <ImageDisplay images={text1} />
+      <ImageDisplay images={'["1","2","3"]'} />
       <ProductInfo product={currentProduct} onSwitchProduct={switchProduct} />
     </main>
   );
