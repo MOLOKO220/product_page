@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ImageDisplay from "../ImageDisplay/page";
 import ProductInfo from "../ProductInfo/page";
 // data
-import products from "@/app/data/products";
+import products from "../../data/products";
 
 export default function MainWrap() {
   const [currentProductIndex, setCurrentProductIndex] = useState<number>(0);
