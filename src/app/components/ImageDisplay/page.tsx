@@ -28,6 +28,7 @@ export default function ImageDisplay({ images }: ImageGalleryProps) {
           {images.map((image, index) => (
             <Tabs.Trigger
               key={index}
+              value={`tab-${index}`}
               onMouseEnter={() => setCurrentIndex(index)}
             >
               <img
