@@ -9,7 +9,6 @@ export default function MainWrap() {
   const [currentProductIndex, setCurrentProductIndex] = useState<number>(0);
   const currentProduct = products[currentProductIndex];
 
-  // const text1 = JSON.stringify(currentProduct.images);
 
   function switchProduct(index: number) {
     setCurrentProductIndex(index);
@@ -17,7 +16,7 @@ export default function MainWrap() {
 
   return (
     <main className="MainWrap container">
-      <ImageDisplay images={'["1","2","3"]'} />
+      <ImageDisplay images={currentProduct.imges} />
       <ProductInfo product={currentProduct} onSwitchProduct={switchProduct} />
     </main>
   );
