@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Tabs, Button } from "@radix-ui/themes";
 
 interface ImageGalleryProps {
-  images: string[];
+  images: any[];
 }
 
 const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
