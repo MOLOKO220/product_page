@@ -9,7 +9,7 @@ export default function MainWrap() {
   const [currentProductIndex, setCurrentProductIndex] = useState<number>(0);
   const currentProduct = products[currentProductIndex];
 
-  const text1 = JSON.stringify(currentProduct.images);
+  // const text1 = JSON.stringify(currentProduct.images);
 
   function switchProduct(index: number) {
     setCurrentProductIndex(index);
