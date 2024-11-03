@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { Tabs } from "@radix-ui/themes";
 import StyleSwitcher from "../StyleSwitcher/page";
