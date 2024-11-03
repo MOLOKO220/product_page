@@ -6,26 +6,26 @@ interface ImageGalleryProps {
   images: string[];
 }
 
-const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
+const ImageDisplay: React.FC<ImageGalleryProps> = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % props.images.length);
   };
 
   const prevImage = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      (prevIndex) => (prevIndex - 1 + props.images.length) % props.images.length
     );
   };
 
-  const mainImage = images[currentIndex];
+  const mainImage = props.images[currentIndex];
 
   return (
     <div className="ImageDisplay">
       <Tabs.Root orientation="vertical" className="ImageDisplay__btns">
         <Tabs.List>
-          {images.map((image, index) => (
+          {props.images.map((image, index) => (
             <Tabs.Trigger
               key={index}
               value={`tab-${index}`}
@@ -42,7 +42,7 @@ const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
 
       <div className="ImageDisplay__main-image">
         <img src={`/imgs/product/${mainImage}`} alt="Main view" />
-        <Button onClick={prevImage} disabled={images.length <= 1}>
+        <Button onClick={prevImage} disabled={props.images.length <= 1}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -59,7 +59,7 @@ const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
             ></path>
           </svg>
         </Button>
-        <Button onClick={nextImage} disabled={images.length <= 1}>
+        <Button onClick={nextImage} disabled={props.images.length <= 1}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -79,5 +79,5 @@ const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
       </div>
     </div>
   );
-}
+};
 export default ImageDisplay;
