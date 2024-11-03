@@ -6,7 +6,7 @@ interface ImageGalleryProps {
   images: string[];
 }
 
-export default function ImageDisplay({ images }: ImageGalleryProps) {
+const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -80,3 +80,4 @@ export default function ImageDisplay({ images }: ImageGalleryProps) {
     </div>
   );
 }
+export default ImageDisplay;
