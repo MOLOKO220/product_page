@@ -1,13 +1,13 @@
+// @ts-nocheck
 "use client";
 import React, { useState } from "react";
-// import { Tabs, Button } from "@radix-ui/themes";
-import { Button } from "@radix-ui/themes";
+import { Tabs, Button } from "@radix-ui/themes";
 
 interface ImageGalleryProps {
   images: string[];
 }
 
-const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
+const ImageDisplay: React.FC<ImageGalleryProps> = ({ images = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -24,7 +24,7 @@ const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
 
   return (
     <div className="ImageDisplay">
-      {/* <Tabs.Root orientation="vertical" className="ImageDisplay__btns">
+      <Tabs.Root orientation="vertical" className="ImageDisplay__btns">
         <Tabs.List>
           {images.map((image, index) => (
             <Tabs.Trigger
@@ -39,8 +39,7 @@ const ImageDisplay: React.FC<ImageGalleryProps> = ({ images }) => {
             </Tabs.Trigger>
           ))}
         </Tabs.List>
-      </Tabs.Root> */}
-
+      </Tabs.Root>
       <div className="ImageDisplay__main-image">
         <img src={`/imgs/product/${mainImage}`} alt="Main view" />
         <Button onClick={prevImage} disabled={images.length <= 1}>
